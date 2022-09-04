@@ -13,15 +13,23 @@ sudo docker run \
  -p 82:82 -e HTTP_PORT=82 \
  -it mozart89/tring-test
 ```
+Result:
+[http://localhost:82/](http://localhost:82/)
+
 
 ```
 sudo docker run \
- -p 1443:1443 -e HTTPS_PORT=1443 \ # work simultaneously
- -e SSL_CERTIFICATE=/foo/bar/file.cert \ # work simultaneously
- -e SSL_CERTIFICATE_KEY=/foo/bar/file.key \ # work simultaneously
+ -p 1443:1443 -e HTTPS_PORT=1443 \
+ -e SSL_CERTIFICATE=/foo/bar/file.cert \
+ -e SSL_CERTIFICATE_KEY=/foo/bar/file.key \
  -v /home/eugen/repos/test/cert:/foo/bar \
  -it mozart89/tring-test
 ```
+Result:
+[https://localhost:1443/](https://localhost:1443/)
+
+
+
 
 ```
 sudo docker run \
@@ -30,3 +38,7 @@ sudo docker run \
  -v /home/eugen/repos/test/static:/path/to/static/files \
  -it mozart89/tring-test
 ```
+
+Result:
+[http://localhost/test.png](http://localhost/test.png)
+
