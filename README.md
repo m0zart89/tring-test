@@ -10,22 +10,23 @@ Docker env parameters:
 Docker image usage:
 ```
 sudo docker run \
- -p 82:82 \
- -e HTTP_PORT=82 \
+ -p 82:82 -e HTTP_PORT=82 \
  -it mozart89/tring-test
 ```
 
 ```
 sudo docker run \
- -p 1443:1443 \
- -e HTTPS_PORT=1443 \ # work simultaneously
- -e SSL_CERTIFICATE=/foo/bar1/file.cert \ # work simultaneously
- -e SSL_CERTIFICATE_KEY=/foo/bar2/file.key \ # work simultaneously
+ -p 1443:1443 -e HTTPS_PORT=1443 \ # work simultaneously
+ -e SSL_CERTIFICATE=/foo/bar/file.cert \ # work simultaneously
+ -e SSL_CERTIFICATE_KEY=/foo/bar/file.key \ # work simultaneously
+ -v /home/eugen/repos/test/cert:/foo/bar \
  -it mozart89/tring-test
 ```
 
 ```
 sudo docker run \
+ -p 80:80 \
  -e STATIC_PATH=/path/to/static/files \
+ -v /home/eugen/repos/test/static:/path/to/static/files \
  -it mozart89/tring-test
 ```
