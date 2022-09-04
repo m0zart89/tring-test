@@ -51,10 +51,15 @@ http {
         listen       $HTTP_PORT default_server;
         listen       [::]:$HTTP_PORT default_server;
         server_name  _;
-        root         $STATIC_PATH;
+        root         /usr/share/nginx/html;
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
+
+        location ~ \.(js|css|png) {
+          root $STATIC_PATH;
+        }
+
 
         location / {
         }
@@ -80,7 +85,7 @@ cat <<EOF >>/etc/nginx/nginx.conf
         listen       $HTTPS_PORT ssl http2 default_server;
         listen       [::]:$HTTPS_PORT ssl http2 default_server;
         server_name  _;
-        root         $STATIC_PATH;
+        root         /usr/share/nginx/html;
 
         ssl_certificate "$SSL_CERTIFICATE";
         ssl_certificate_key "$SSL_CERTIFICATE_KEY";
@@ -91,6 +96,10 @@ cat <<EOF >>/etc/nginx/nginx.conf
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
+
+        location ~ \.(js|css|png) {
+          root $STATIC_PATH;
+        }
 
         location / {
         }
