@@ -7,7 +7,12 @@ Docker env parameters:
 * SSL_CERTIFICATE_KEY (default disabled)
 * STATIC_PATH (default /usr/share/nginx/html)
 
-Docker image usage:
+1. Clone repo:
+```
+git clone git@github.com:m0zart89/tring-test.git
+```
+
+2. HTTP Server:
 ```
 sudo docker run \
  -p 82:82 -e HTTP_PORT=82 \
@@ -17,6 +22,7 @@ Result:
 [http://localhost:82/](http://localhost:82/)
 
 
+3. HTTPS Server:
 ```
 sudo docker run \
  -p 1443:1443 -e HTTPS_PORT=1443 \
@@ -29,8 +35,7 @@ Result:
 [https://localhost:1443/](https://localhost:1443/)
 
 
-
-
+4. File Server:
 ```
 sudo docker run \
  -p 80:80 \
