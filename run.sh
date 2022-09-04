@@ -123,6 +123,4 @@ cat <<EOF >>/etc/nginx/nginx.conf
 
 EOF
 
-cat /etc/nginx/nginx.conf
-
 nginx -g 'daemon off;'
