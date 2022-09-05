@@ -28,7 +28,7 @@ sudo docker run \
  -p 1443:1443 -e HTTPS_PORT=1443 \
  -e SSL_CERTIFICATE=/foo/bar/file.cert \
  -e SSL_CERTIFICATE_KEY=/foo/bar/file.key \
- -v /home/eugen/repos/test/cert:/foo/bar \
+ -v "$(pwd)"/cert:/foo/bar \
  -it mozart89/tring-test
 ```
 Result:
@@ -40,7 +40,7 @@ Result:
 sudo docker run \
  -p 80:80 \
  -e STATIC_PATH=/path/to/static/files \
- -v /home/eugen/repos/test/static:/path/to/static/files \
+ -v "$(pwd)"/static:/path/to/static/files \
  -it mozart89/tring-test
 ```
 
